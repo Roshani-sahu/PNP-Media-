@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    /* PNP Media — Dark Luxury Theme */
+    --background: 0 0% 4.3%;           /* #0B0B0B Deep Black */
+    --foreground: 36 33% 93%;          /* #F7F5F2 Soft White */
+    --card: 0 0% 11%;                  /* #1C1C1C Charcoal Gray */
+    --card-foreground: 36 33% 93%;
+    --popover: 0 0% 11%;
+    --popover-foreground: 36 33% 93%;
+    --primary: 33 38% 73%;             /* #D8C3A5 Rich Beige */
+    --primary-foreground: 0 0% 4.3%;
+    --secondary: 32 33% 70%;           /* #CBB89D Warm Sand */
+    --secondary-foreground: 0 0% 4.3%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 36 15% 65%;
+    --accent: 33 38% 73%;
+    --accent-foreground: 0 0% 4.3%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 36 33% 93%;
+    --border: 0 0% 18%;
+    --input: 0 0% 15%;
+    --ring: 33 38% 73%;
+    --chart-1: 33 38% 73%;
+    --chart-2: 32 33% 70%;
+    --chart-3: 36 33% 93%;
+    --chart-4: 0 0% 60%;
+    --chart-5: 0 0% 40%;
+    --radius: 0.25rem;
+
+    /* Custom brand tokens */
+    --deep-black: #0B0B0B;
+    --rich-beige: #D8C3A5;
+    --warm-sand: #CBB89D;
+    --soft-white: #F7F5F2;
+    --charcoal: #1C1C1C;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+    background-color: #0B0B0B;
+    color: #F7F5F2;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  /* Marquee animation */
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+
+  /* Counter fade-up */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-up {
+    animation: fadeUp 0.7s ease forwards;
+  }
+
+  /* Slow spin for decorative elements */
+  @keyframes slowSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .animate-slow-spin {
+    animation: slowSpin 20s linear infinite;
+  }
+
+  /* Pulse glow */
+  @keyframes pulseGlow {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.05); }
+  }
+  .animate-pulse-glow {
+    animation: pulseGlow 4s ease-in-out infinite;
+  }
+
+  /* Float */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+  }
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Text reveal */
+  @keyframes revealText {
+    from { clip-path: inset(0 100% 0 0); }
+    to { clip-path: inset(0 0% 0 0); }
+  }
+  .animate-reveal-text {
+    animation: revealText 1s ease forwards;
+  }
+
+  /* Gradient shift */
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradientShift 6s ease infinite;
+  }
+
+  /* Beige glow text */
+  .text-beige { color: #D8C3A5; }
+  .text-sand { color: #CBB89D; }
+  .text-soft-white { color: #F7F5F2; }
+  .bg-deep-black { background-color: #0B0B0B; }
+  .bg-charcoal { background-color: #1C1C1C; }
+  .bg-beige { background-color: #D8C3A5; }
+  .bg-sand { background-color: #CBB89D; }
+  .border-beige { border-color: #D8C3A5; }
+  .border-beige\/20 { border-color: rgba(216,195,165,0.2); }
+  .border-beige\/30 { border-color: rgba(216,195,165,0.3); }
+
+  /* Thin elegant line */
+  .line-beige::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 1px;
+    background-color: #D8C3A5;
+    margin-top: 1rem;
+  }
+}
